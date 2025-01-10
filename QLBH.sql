@@ -11,21 +11,7 @@ CREATE TABLE KHACHHANG
 	diaChi VARCHAR(30)
 )
 
-INSERT INTO KHACHHANG(maKH, Ten, Tuoi, diaChi)
-VALUES
-(1, 'Le Minh Quan', 30, 'HaNoi'),
-(2, 'Pham Ngoc Oanh', 20, 'Nam Dinh'),
-(3, 'Le Hong Ha', 50, 'Ha Nam'),
-(4, 'Nguyen Thu Trang', 20, 'Ha Noi'),
-(5, 'Le Thu Hang', 35, 'Ha Noi'),
-(6, 'Nguyen Anh Tai', 25, 'Ha Noi'),
-(7, 'Pham Thu Ha', 18, 'Nam Dinh'),
-(8, 'Le Van Tuan', 17, 'Phu Tho'),
-(9, 'Nguyen Thi Duyen', 28, 'Phu Tho'),
-(10, 'Dao Thu Lan', 31, 'Ha Noi')
-
 -- TAO BANG HOA DON --
-
 CREATE TABLE HOADON
 (
 	maHD INT NOT NULL,
@@ -38,16 +24,6 @@ CREATE TABLE HOADON
 ALTER TABLE HOADON
 ADD CONSTRAINT PK_HOADON PRIMARY KEY(maHD)
 
-drop table HOADON
-
-INSERT INTO HOADON(maHD, maKH, ngayMua, tongTien)
-VALUES
-(1, 1, '2021-03-21', 0),
-(2, 2, '2021-03-23', 0),
-(3, 1, '2021-03-16', 0),
-(4, 1, '2021-03-16', 0),
-(5, 1, '2021-03-20', 0)
-
 -- TAO BANG SAN PHAM --
 CREATE TABLE SANPHAM
 (
@@ -55,14 +31,6 @@ CREATE TABLE SANPHAM
 	tenSP VARCHAR(30),
 	Gia INT
 )
-
-INSERT INTO SANPHAM(maSP, tenSP, Gia) 
-VALUES
-(1, 'May Giat', 3),
-(2, 'Tu Lanh', 5),
-(3, 'Dieu Hoa', 7),
-(4, 'Quat', 1),
-(5, 'Bep Dien', 2)
 
 -- TAO BANG CHITIETHOADON --
 CREATE TABLE CHITIETHOADON
@@ -76,6 +44,36 @@ CREATE TABLE CHITIETHOADON
 
 ALTER TABLE CHITIETHOADON
 ADD PRIMARY KEY (maHD, maSP)
+
+-- CHEN DU LIEU VAO BANG --
+INSERT INTO KHACHHANG(maKH, Ten, Tuoi, diaChi)
+VALUES
+(1, 'Le Minh Quan', 30, 'HaNoi'),
+(2, 'Pham Ngoc Oanh', 20, 'Nam Dinh'),
+(3, 'Le Hong Ha', 50, 'Ha Nam'),
+(4, 'Nguyen Thu Trang', 20, 'Ha Noi'),
+(5, 'Le Thu Hang', 35, 'Ha Noi'),
+(6, 'Nguyen Anh Tai', 25, 'Ha Noi'),
+(7, 'Pham Thu Ha', 18, 'Nam Dinh'),
+(8, 'Le Van Tuan', 17, 'Phu Tho'),
+(9, 'Nguyen Thi Duyen', 28, 'Phu Tho'),
+(10, 'Dao Thu Lan', 31, 'Ha Noi')
+
+INSERT INTO HOADON(maHD, maKH, ngayMua, tongTien)
+VALUES
+(1, 1, '2021-03-21', 0),
+(2, 2, '2021-03-23', 0),
+(3, 1, '2021-03-16', 0),
+(4, 1, '2021-03-16', 0),
+(5, 1, '2021-03-20', 0)
+
+INSERT INTO SANPHAM(maSP, tenSP, Gia) 
+VALUES
+(1, 'May Giat', 3),
+(2, 'Tu Lanh', 5),
+(3, 'Dieu Hoa', 7),
+(4, 'Quat', 1),
+(5, 'Bep Dien', 2)
 
 INSERT INTO CHITIETHOADON(maHD, maSP, soLuong)
 VALUES
